@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Ventas · Offline</title>
+
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Ventas" />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-title">Ventas · Offline</div>
+        <div class="brand-sub">PWA · IndexedDB · Supabase</div>
+      </div>
+
+      <div class="topbar-actions">
+        <button class="btn btn-xs" id="btnInstall" style="display:none">Instalar</button>
+        <button class="btn btn-xs" id="btnSync" title="Sincronizar" style="display:none">⟳</button>
+        <button class="btn btn-xs" id="btnHome" title="Dashboard">🏠</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-view="dash">Dashboard</button>
+    <button class="tab" data-view="predicciones">Predicciones</button>
+
+    <button class="tab" data-view="farmacias">Farmacias</button>
+    <button class="tab" data-view="misfarmacias">Mis farmacias</button>
+
+    <button class="tab" data-view="opticas">Ópticas</button>
+    <button class="tab" data-view="misopticas">Mis ópticas</button>
+
+    <button class="tab" data-view="pedidos">Pedidos</button>
+    <button class="tab" data-view="productos">Productos</button>
+
+    <button class="tab" data-view="rutas">Rutas</button>
+    <button class="tab" data-view="visitas">Visitas</button>
+
+    <button class="tab" data-view="backup">Backup</button>
+    <button class="tab" data-view="ajustes">Ajustes</button>
+    <button class="tab" data-view="admin" style="display:none">Admin</button>
+  </nav>
+
+  <main class="container">
+    <div id="view"></div>
+  </main>
+
+  <div id="toast" class="toast" style="display:none"></div>
+
+  <!-- Dialog principal -->
+  <dialog id="dlgMain">
+    <div class="dlg-head">
+      <div class="row">
+        <div>
+          <b id="dlgMainTitle">Detalles</b><br>
+          <span class="mini muted" id="dlgMainSub"></span>
+        </div>
+        <button class="btn btn-xs" id="dlgMainClose">Cerrar</button>
+      </div>
+    </div>
+    <div class="dlg-body" id="dlgMainBody"></div>
+    <div class="dlg-foot" id="dlgMainFoot"></div>
+  </dialog>
+
+  <!-- Dialog secundario -->
+  <dialog id="dlgSub">
+    <div class="dlg-head">
+      <div class="row">
+        <div>
+          <b id="dlgSubTitle">Editar</b><br>
+          <span class="mini muted" id="dlgSubSub"></span>
+        </div>
+        <button class="btn btn-xs" id="dlgSubClose">Cerrar</button>
+      </div>
+    </div>
+    <div class="dlg-body" id="dlgSubBody"></div>
+    <div class="dlg-foot" id="dlgSubFoot"></div>
+  </dialog>
+
+  <script src="./app.js"></script>
+</body>
+</html>
